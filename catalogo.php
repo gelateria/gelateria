@@ -16,22 +16,22 @@
 	    	 //creazione del PDO
 	    	 $db= new PDO ($collegamento, "ice","cream");
 	    	  //creazione della query SELECT per visualizare i nuovi gelati
-	    	  $sql="SELECT nome,tipo_foto,dati_foto,descrizione FROM catalogo";
+	    	  $sql="SELECT nome,dati_foto,descrizione,ingredienti FROM catalogo";
 	    	   //stampa a video dei risultati
 	    	   foreach ($db->query($sql) as $row) {
 	    		//aggiungere parte html per inserire i risultati nella tabella
-	    		echo $row['tipo_foto']." ".$$row['dati_foto']." ".$row['nome'];
+	    		echo $row['ingredienti']." ".$$row['dati_foto']." ".$row['nome'];
 	    	}
 	    }
 	    /*ELSE si attiva all'entrata sulla pagina e farà visionare i nuovi 
 	    prodotti, in particolare gli ultim 3 prodotti*/
 	    else{
 	    	//creazione collegamento al database
-	    	$collegamento="mysql:host=151.63.77.13;port=3306;dbname=sitogelateria";
+	    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 	    	 //creazione del PDO
 	    	 $db= new PDO ($collegamento, "ice","cream");
 	    	  //creazione della query SELECT per visualizare i nuovi gelati
-	    	  $sql="SELECT nome,tipo_foto,dati_foto,descrizione FROM catalogo 
+	    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
 	    	     	  ORDER BY desc() LIMIT 3";
 	    	   //stampa a video dei risultati
 	    	   foreach ($db->query($sql) as $row) {
@@ -62,13 +62,13 @@
 		    	 //creazione del PDO
 		    	 $db= new PDO ($collegamento, "ice", "cream");
 		    	  //creazione della query SELECT per visualizare i nuovi gelati
-		    	  $sql="SELECT nome,tipo_foto,dati_foto,descrizione FROM catalogo
+		    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo
 		    	        ORDER BY rand() limit 1 ";
 		    	  
 		    	   //stampa a video dei risultati
 		    	   foreach ($db->query($sql) as $row) {
 		    		//aggiungere parte html per inserire i risultati nella tabella
-		    		echo $row['tipo_foto']." ".$$row['dati_foto']." ".$row['nome'];
+		    		echo $row['ingredienti']." ".$$row['dati_foto']." ".$row['nome'];
 	    	 		}
 	    	}
 	    	else{
@@ -77,12 +77,12 @@
 	    	 //creazione del PDO
 	    	 $db= new PDO ($collegamento, "ice","cream");
 	    	  //creazione della query SELECT per visualizare i risultati
-	    	  $sql="SELECT nome,tipo_foto,dati_foto,descrizione FROM catalogo 
+	    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
 	    	  WHERE nome LIKE "%'$key'%" OR descrizione LIKE "%'$key'%"";
 	    	   //stampa a video dei risultati
 	    	   foreach ($db->query($sql) as $row) {
 	    		//aggiungere parte html per inserire i risultati nella tabella
-	    		echo $row['tipo_foto']." ".$$row['dati_foto']." ".$row['nome'];
+	    		echo $row['ingredienti']." ".$$row['dati_foto']." ".$row['nome'];
 	    		}
 	    	}	
 	    	
@@ -156,3 +156,4 @@
 	    ?>		
 	</div>
 </BODY>
+</html>
