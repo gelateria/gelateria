@@ -124,7 +124,7 @@
 		    	  	VALUES ('$nome','$foto','$ingredienti','$descrizione')");
 		    	   
 	    	}
-	    }
+	    
 	    /*ELSE si attiva all'entrata sulla pagina e farà visionare i nuovi 
 	    prodotti, in particolare gli ultim 3 prodotti*/
 	    else{
