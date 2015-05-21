@@ -1,6 +1,7 @@
 <html>
 <HEAD>
 	<TITLE>I nostri prodotti</TITLE>
+	<link rel="stylesheet" type="text/css" href="stile.css">
 	<style type="text/css">
 	#box{
 		margin: auto;
@@ -208,5 +209,6 @@
 
 	</div>
 	</div>
+	<?php include 'footer.html';?>
 </BODY>
 </html>
