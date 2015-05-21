@@ -10,7 +10,7 @@
 	  <?php
 	  	/*Primo if si attiva dopo aver cliccato sul tasto per visionare l'elenco
 	  	completo dei prodotti*/ 
-	    if ((isset($_POST"submit"))) {
+	    if ((isset($_POST["submit"]))) {
 	    	//creazione collegamento al database
 	    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 	    	 //creazione del PDO
@@ -43,8 +43,10 @@
 	    	<form method="post" action="<?php $PHP_SELF ?>">
 	    		<input type="submit" value="Catalogo completo" name="submit" id="submit">
 	    	</form>
+	    <?php	
 	    }
-		
+		?>
+
 	</div>
 	<div id="due">
 	 <!--Questo div si occuperà della parte inerente la ricerca di un gusto
@@ -54,7 +56,7 @@
 
 	 $key=$_GET['key'];
 	  	/*Primo if si attiva dopo aver cliccato sul tasto per la ricerca*/ 
-	    if ((isset($_POST"submit"))) {
+	    if ((isset($_POST["submit"]))) {
 	    	//if lucky serve per l'estrazione del gelato a caso
 	    	if ((isset($_POST["lucky"]))) {
 	    		//creazione collegamento al database
@@ -107,7 +109,7 @@
 		<?php
 	  	/*Primo if si attiva dopo aver cliccato sul tastoper l'inserimento
 	  	dei nuovi prodotti*/ 
-	    if ((isset($_POST"submit"))) {
+	    if ((isset($_POST["submit"]))) {
 	    	
 	    	$nome=$_POST['nome'];
 	    	 $ingredienti=$_POST['ingredienti'];
