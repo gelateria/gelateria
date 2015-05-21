@@ -141,7 +141,7 @@
 	 
 	  	/*Primo if si attiva dopo aver cliccato sul tasto per la ricerca*/ 
 	    if ((isset($_POST["cerca"])) || (isset($_POST["lucky"]))) {
-	    	$key=$_GET['key'];
+	    	$key=$_POST['key'];
 	    	//if lucky serve per l'estrazione del gelato a caso
 	    	if ((isset($_POST["lucky"]))) {
 	    		//creazione collegamento al database
@@ -182,7 +182,7 @@
 	    	?>
 	    	<!--Form che permette di scrivere la parola da ricercare, 
 	    	tasto di ricerca più gelato fortunato-->
-	    	<form method="get" action="<?php $PHP_SELF ?>">
+	    	<form method="post" action="<?php $PHP_SELF ?>">
 	    		<input type="text" name="key" size="45"><br>
 	    		 <input type="submit" value="Cerca" name="cerca" id="cerca">
 	    		  <input type="button" value="Tenta la fortuna" name="lucky" id="lucky">
