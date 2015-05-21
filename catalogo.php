@@ -141,17 +141,25 @@
 	 
 	  	/*Primo if si attiva dopo aver cliccato sul tasto per la ricerca*/ 
 	    if ((isset($_POST["cerca"])) || (isset($_POST["lucky"]))) {
+	    	
 	    	$key=$_POST['key'];
 	    	//if lucky serve per l'estrazione del gelato a caso
 	    	if ((isset($_POST["lucky"]))) {
-	    		//creazione collegamento al database
-		    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
-		    	 //creazione del PDO
-		    	 $db= new PDO ($collegamento, 'ice','cream');
-		    	  //creazione della query SELECT per visualizare i nuovi gelati
-		    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo
-		    	        ORDER BY rand() limit 1 ";
-		    	  
+	    		?>
+	    		<form method="post" action="<?php $PHP_SELF ?>">
+	    		<input type="text" name="key" size="45"><br>
+	    		 <input type="submit" value="Cerca" name="cerca" id="cerca">
+	    		  <input type="submit" value="Tenta la fortuna" name="lucky" id="lucky">
+	    		   </form>
+	    		    <?php
+		    		//creazione collegamento al database
+			    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
+				    	 //creazione del PDO
+				    	 $db= new PDO ($collegamento, 'ice','cream');
+			    	  //creazione della query SELECT per visualizare i nuovi gelati
+			    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo
+			    	        ORDER BY rand() limit 1 ";
+			    	  
 		    	   //stampa a video dei risultati
 		    	   foreach ($db->query($sql) as $row) {
 		    		//aggiungere parte html per inserire i risultati nella tabella
@@ -160,18 +168,25 @@
 	    	 		}
 	    	}
 	    	else{
-	    	//creazione collegamento al database
-	    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
-	    	 //creazione del PDO
-	    	 $db= new PDO ($collegamento,'ice','cream');
-	    	  //creazione della query SELECT per visualizare i risultati
-	    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
-	    	  WHERE nome LIKE "%'$key'%" OR descrizione LIKE "%'$key'%"";
-	    	   //stampa a video dei risultati
-	    	   foreach ($db->query($sql) as $row) {
-	    		//aggiungere parte html per inserire i risultati nella tabella
-	    		echo '<img src="data:image/jpeg;base64,' . base64_encode( $row['dati_foto'] ) . '" width=300px /><br>'."Nome: ".
-	    		$row['nome']."<br>Ingredienti: ".$row['ingredienti'];
+	    		?>
+	    		<form method="post" action="<?php $PHP_SELF ?>">
+	    		<input type="text" name="key" size="45"><br>
+	    		 <input type="submit" value="Cerca" name="cerca" id="cerca">
+	    		  <input type="submit" value="Tenta la fortuna" name="lucky" id="lucky">
+	    			</form>
+				     <?php
+				      //creazione collegamento al database
+				      $collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
+				       //creazione del PDO
+				       $db= new PDO ($collegamento,'ice','cream');
+				        //creazione della query SELECT per visualizare i risultati
+				        $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
+				    	  WHERE (nome LIKE '%$key') OR (ingredienti LIKE '%$key%')";
+				    	   //stampa a video dei risultati
+				       	   foreach ($db->query($sql) as $row) {
+				    		//aggiungere parte html per inserire i risultati nella tabella
+				    		echo '<img src="data:image/jpeg;base64,' . base64_encode( $row['dati_foto'] ) . '" width=100px /><br>'."Nome: ".
+				    		$row['nome']."<br>Ingredienti: ".$row['ingredienti'];
 	    		}
 	    	}	
 	    	
@@ -185,7 +200,7 @@
 	    	<form method="post" action="<?php $PHP_SELF ?>">
 	    		<input type="text" name="key" size="45"><br>
 	    		 <input type="submit" value="Cerca" name="cerca" id="cerca">
-	    		  <input type="button" value="Tenta la fortuna" name="lucky" id="lucky">
+	    		  <input type="submit" value="Tenta la fortuna" name="lucky" id="lucky">
 	    	</form>
 	    <?php
 	    }
