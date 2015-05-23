@@ -11,6 +11,7 @@
 		margin: 0 0 0 0;
 		width: 50%;
 		float: left;
+		
 
 	}
 	#due{
@@ -41,7 +42,7 @@
 	    	//creazione collegamento al database
 	    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 	    	 //creazione del PDO
-	    	 $db= new PDO ($collegamento, 'ice','cream');
+	    	 $db= new PDO ($collegamento,"ice","cream");
 	    	  //creazione della query SELECT per visualizare i nuovi gelati
 	    	  $sql="SELECT nome,dati_foto,descrizione,ingredienti FROM catalogo";
 	    	   //stampa a video dei risultati
@@ -58,7 +59,7 @@
 	    	//creazione collegamento al database
 	    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 	    	 //creazione del PDO
-	    	 $db= new PDO ($collegamento,'ice','cream');
+	    	 $db= new PDO ($collegamento,"ice","cream");
 	    	  //creazione della query SELECT per visualizare i nuovi gelati
 	    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
 	    	     	  ORDER BY 'desc()' LIMIT 3";
@@ -92,7 +93,7 @@
 		    	//creazione collegamento al database
 		    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 		    	 //creazione del PDO
-		    	 $db= new PDO ($collegamento, 'ice','cream');
+		    	 $db= new PDO ($collegamento,"ice","cream");
 		    	  //creazione della query SELECT per visualizare i nuovi gelati
 		    	  $sql=$db->exec("INSERT INTO catalogo (nome,dati_foto,ingredienti,descrizione) 
 		    	  	VALUES ('$nome','$foto','$ingredienti','$descrizione')");
@@ -156,7 +157,7 @@
 		    		//creazione collegamento al database
 			    	$collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 				    	 //creazione del PDO
-				    	 $db= new PDO ($collegamento, 'ice','cream');
+				    	 $db= new PDO ($collegamento, "ice","cream");
 			    	  //creazione della query SELECT per visualizare i nuovi gelati
 			    	  $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo
 			    	        ORDER BY rand() limit 1 ";
@@ -179,7 +180,7 @@
 				      //creazione collegamento al database
 				      $collegamento="mysql:host=ironwolf90.mynetgear.com;port=3306;dbname=sitogelateria";
 				       //creazione del PDO
-				       $db= new PDO ($collegamento,'ice','cream');
+				       $db= new PDO ($collegamento,"ice","cream");
 				        //creazione della query SELECT per visualizare i risultati
 				        $sql="SELECT nome,ingredienti,dati_foto,descrizione FROM catalogo 
 				    	  WHERE (nome LIKE '%$key') OR (ingredienti LIKE '%$key%')";
